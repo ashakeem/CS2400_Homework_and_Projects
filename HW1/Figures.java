@@ -1,3 +1,4 @@
+package HW1;
 public class Figures {
     public static void main(String[] args) {
         Measurable[] figures = {
