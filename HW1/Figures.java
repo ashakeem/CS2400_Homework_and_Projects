@@ -1,4 +1,12 @@
-
+//
+// Name: Hakeem, Ayomide
+// Homework: #1
+// Due: 02/01/2024
+// Course: cs-2400-sp24
+//
+// Description:
+// Interfaces and Classes to calculate area and perimeter of shapes
+//
 public class Figures {
     public static void main(String[] args) {
         Measurable[] figures = {
