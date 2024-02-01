@@ -1,4 +1,4 @@
-package HW1;
+
 public class Rectangle implements Measurable {
     private double length;
     private double breadth;

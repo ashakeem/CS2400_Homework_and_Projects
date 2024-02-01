@@ -1,4 +1,4 @@
-package HW1;
+
 public class Square implements Measurable {
     private double side;
 
