@@ -1,11 +1,11 @@
 //
 // Name: Hakeem, Ayomide
 // Project: #4
-// Due: 04/30/2024
+// Due: 05/08/2024
 // Course: cs-2400-03-sp24
 //
 // Description:
-// Menu System for Project 4
+// Distances and Shortest Path between Airports
 //
 
 import java.io.BufferedReader;
@@ -15,10 +15,14 @@ import java.util.Scanner;
 
 public class AirportApp {
     private HashedDictionary<String, String> airports;
+    private static GraphInterface<String> myMap; //instance of map
 
     public AirportApp() {
         airports = new HashedDictionary<>();
+        myMap = new DirectedGraph<>();  // you can change this to yours professor if you like, keeping here for app to run
     }
+
+    // Method to load airports from file
 
     public void loadAirportsFromFile(String fileName) {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -37,6 +41,28 @@ public class AirportApp {
         }
     }
 
+    // Method to load distances from file
+
+    public void loadDistancesFromFile(String fileName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    String from = parts[0].trim();
+                    String to = parts[1].trim();
+                    double distance = Double.parseDouble(parts[2].trim());
+                    myMap.addVertex(from);
+                    myMap.addVertex(to);
+                    myMap.addEdge(from, to, distance);
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+    }
+
+    // Method to get airport info
     public String getAirportInfo(String code) {
         if (airports.get(code) != null) {
             return airports.get(code);
@@ -45,15 +71,20 @@ public class AirportApp {
         return "Airport code unknown";
     }
 
+    // Method to get distance between two airports will go here
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String command;
         AirportApp app = new AirportApp();
         app.loadAirportsFromFile("airports.csv");
 
-        // Graph will go here
+        
+        app.loadDistancesFromFile("distances.csv");
+        // myMap.show();
 
         System.out.println("Airports v0.24 by Hakeem, Ayomide\n\n");
+
         do {
             System.out.print("Command? ");
             command = scanner.nextLine().toUpperCase();

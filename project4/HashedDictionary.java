@@ -1,12 +1,15 @@
 //
 // Name: Hakeem, Ayomide
 // Project: #4
-// Due: 04/30/2024
+// Due: 05/08/2024
 // Course: cs-2400-03-sp24
 //
 // Description:
-// Menu System for Project 4
+// Distances and Shortest Path between Airports
 //
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class HashedDictionary<K, V> implements DictionaryInterface<K, V> {
     private static final int DEFAULT_CAPACITY = 10;
@@ -111,4 +114,16 @@ public class HashedDictionary<K, V> implements DictionaryInterface<K, V> {
     public int size() {
         return size;
     }
+
+    @Override
+    public Iterator<V> getValueIterator() {
+        ArrayList<V> activeValues = new ArrayList<>();
+        for (Entry<K, V> entry : table) {
+            if (entry != null && entry.isActive) {
+                activeValues.add(entry.value);
+            }
+        }
+        return activeValues.iterator();
+    }
+
 }

@@ -8,6 +8,8 @@
 // Menu System for Project 4
 //
 
+import java.util.Iterator;
+
 public interface DictionaryInterface<K, V> {
     void add(K key, V value);
 
@@ -18,4 +20,7 @@ public interface DictionaryInterface<K, V> {
     boolean containsKey(K key);
 
     int size();
+
+    Iterator<V> getValueIterator();
+
 }
