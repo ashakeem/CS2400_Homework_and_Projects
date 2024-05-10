@@ -81,7 +81,7 @@ public class AirportApp {
 
         
         app.loadDistancesFromFile("distances.csv");
-        // myMap.show();
+        myMap.show();
 
         System.out.println("Airports v0.24 by Hakeem, Ayomide\n\n");
 
