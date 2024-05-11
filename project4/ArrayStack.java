@@ -1,3 +1,13 @@
+//
+// Name: Hakeem, Ayomide
+// Project: #4
+// Due: 05/10/2024
+// Course: cs-2400-03-sp24
+//
+// Description:
+// Final Project on Minimum distance between Airports
+//
+
 import java.util.Arrays;
 import java.util.EmptyStackException;
 
@@ -86,7 +96,7 @@ public final class ArrayStack<T> implements StackInterface<T> {
                     "Attempt to create a stack " + "whose capacity exceeds " + "allowed maximum.");
     } // end checkCapacity
 
-    
+
 
 
 }

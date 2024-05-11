@@ -1,11 +1,11 @@
 //
 // Name: Hakeem, Ayomide
 // Project: #4
-// Due: 05/08/2024
+// Due: 05/10/2024
 // Course: cs-2400-03-sp24
 //
 // Description:
-// Distances and Shortest Path between Airports
+// Final Project on Minimum distance between Airports
 //
 
 import java.io.BufferedReader;
@@ -15,11 +15,12 @@ import java.util.Scanner;
 
 public class AirportApp {
     private HashedDictionary<String, String> airports;
-    private static GraphInterface<String> myMap; //instance of map
+    private static GraphInterface<String> myMap; // instance of map
 
     public AirportApp() {
         airports = new HashedDictionary<>();
-        myMap = new DirectedGraph<>();  // you can change this to yours professor if you like, keeping here for app to run
+        myMap = new DirectedGraph<>(); // you can change this to yours professor if you like, keeping here for app to
+                                       // run
     }
 
     // Method to load airports from file
@@ -55,6 +56,7 @@ public class AirportApp {
                     myMap.addVertex(from);
                     myMap.addVertex(to);
                     myMap.addEdge(from, to, distance);
+                    //  System.out.println("Loaded: " + from + " -> " + to + " = " + distance); // Debug print
                 }
             }
         } catch (IOException | NumberFormatException e) {
@@ -72,6 +74,16 @@ public class AirportApp {
     }
 
     // Method to get distance between two airports will go here
+    public StackInterface<String> getDistance(String from, String to) {
+        StackInterface<String> route = new ArrayStack<>();
+
+        double distance = myMap.getCheapestPath(from, to, route);
+        return distance;
+
+        
+
+
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -79,9 +91,8 @@ public class AirportApp {
         AirportApp app = new AirportApp();
         app.loadAirportsFromFile("airports.csv");
 
-        
         app.loadDistancesFromFile("distances.csv");
-        myMap.show();
+        // myMap.show();
 
         System.out.println("Airports v0.24 by Hakeem, Ayomide\n\n");
 
@@ -99,8 +110,11 @@ public class AirportApp {
                     System.out.print("Airport codes from to? ");
                     String from = scanner.next().toUpperCase();
                     String to = scanner.next().toUpperCase();
+                    System.out.println("The minimum distance between " + from + " and " + to + " is " + app.getDistance(from, to));
+                    System.out.println(app.getAirportInfo(from) +  " " + from);
+                    System.out.println("...in between airports");
+                    System.out.println(app.getAirportInfo(to) +  " " + to);
 
-                    // Method to get Distance with Graph goes here
 
                     scanner.nextLine(); // clear buffer
                     break;

@@ -1,48 +1,66 @@
-
 //
 // Name: Hakeem, Ayomide
 // Project: #4
-// Due: 05/08/2024
+// Due: 05/10/2024
 // Course: cs-2400-03-sp24
 //
 // Description:
-// Distances and Shortest Path between Airports
+// Final Project on Minimum distance between Airports
 //
 
 
 /** An interface for the ADT priority queue. */
 
-// PriorityQueueInterface.java
+/**
+ * The PriorityQueueInterface represents the interface for a priority queue data structure.
+ * A priority queue is a collection of elements where each element has a priority associated with it.
+ * Elements with higher priority are dequeued before elements with lower priority.
+ * This interface provides methods to add elements, remove the minimum element, get the minimum element,
+ * check if the priority queue is empty, get the size of the priority queue, and clear the priority queue.
+ *
+ * @param <T> The type of elements stored in the priority queue.
+ */
+ 
+ 
 public interface PriorityQueueInterface<T extends Comparable<? super T>> {
-    /**
-     * Add an element to the priority queue with a specified priority.
-     * 
-     * @param value The value to be added.
-     * @param priority The priority of the element to be added.
-     */
-    void add(T value, int priority);
 
     /**
-     * Removes and returns the smallest element (according to the min-heap property) from the priority queue.
-     * 
-     * @return The value of the smallest element.
-     * @throws IllegalStateException if the priority queue is empty.
+     * Inserts the specified element into this priority queue.
+     *
+     * @param newEntry the element to add
+     */
+    void add(T newEntry);
+
+    /**
+     * Retrieves and removes the minimum element of this priority queue.
+     *
+     * @return the minimum element of this priority queue
      */
     T removeMin();
 
     /**
-     * Returns (without removing) the smallest element (according to the min-heap property) from the priority queue.
-     * 
-     * @return The value of the smallest element.
-     * @throws IllegalStateException if the priority queue is empty.
+     * Retrieves, but does not remove, the minimum element of this priority queue.
+     *
+     * @return the minimum element of this priority queue, or null if this queue is empty
      */
     T getMin();
 
     /**
-     * Returns whether the priority queue is empty.
-     * 
-     * @return True if the priority queue is empty, false otherwise.
+     * Returns true if this priority queue contains no elements.
+     *
+     * @return true if this priority queue contains no elements
      */
     boolean isEmpty();
-}
 
+    /**
+     * Returns the number of elements in this priority queue.
+     *
+     * @return the number of elements in this priority queue
+     */
+    int getSize();
+
+    /**
+     * Removes all of the elements from this priority queue.
+     */
+    void clear();
+}

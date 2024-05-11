@@ -1,12 +1,11 @@
-
 //
 // Name: Hakeem, Ayomide
 // Project: #4
-// Due: 05/08/2024
+// Due: 05/10/2024
 // Course: cs-2400-03-sp24
 //
 // Description:
-// Distances and Shortest Path between Airports
+// Final Project on Minimum distance between Airports
 //
 
 import java.util.Iterator;
@@ -121,4 +120,5 @@ public interface VertexInterface<T> {
      * @return The cost associated with this vertex.
      */
     double getCost();
+
 }
